@@ -23,8 +23,7 @@ const createFornecedor = async (name) => {
 
 const updateFornecedor = async (id, name) => {
     const result = await pool.query(
-        "UPDATE fornecedores SET name = $1 WHERE id = $2 RETURNING *",
-        [name, id]
+        "UPDATE fornecedores SET name = $1 WHERE id = $2 RETURNING *", [name, id]
     );
     return result.rows[0];
 }

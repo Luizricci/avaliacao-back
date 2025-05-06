@@ -33,13 +33,14 @@ const createFornecedor = async (req, res) => {
 
 const updateFornecedor = async (req, res) => {
     try {
-        const fornecedor = await FornecedorModel.updateFornecedor(req.params.id, req.body);
+        const { name } = req.body;
+        const fornecedor = await FornecedorModel.updateFornecedor(req.params.id, name);
         if (!fornecedor) {
             return res.status(404).json({ message: "Fornecedor não encontrado." });
         }
         res.json(fornecedor);
     } catch (error) {
-        res.status(500).json({ message: "Erro ao atualizar o bruxo." });
+        res.status(500).json({ message: "Erro ao atualizar o fornecedor." });
     }
 };
 
