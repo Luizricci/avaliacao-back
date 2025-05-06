@@ -35,8 +35,8 @@ const getProdutosById = async (id) => {
     return result.rows
 }
 
-const createProdutos = async (name, validade, photo) => {
-    const result = await pool.query (`INSERT INTO produtos (name, validade, photo) VALUES ($1, $2, $3) RETURNING *`, [name, validade, photo])
+const createProdutos = async (name, validade, photo, fornecedor_id) => {
+    const result = await pool.query (`INSERT INTO produtos (name, validade, photo, fornecedor_id) VALUES ($1, $2, $3, $4) RETURNING *`, [name, validade, photo, fornecedor_id])
     return result.rows[0]
 }
 

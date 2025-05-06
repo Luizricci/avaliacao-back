@@ -25,9 +25,9 @@ const getById = async (req, res) => {
 
 const createProdutos = async (req, res) => {
     try {
-        const { name, validade } = req.body;
+        const { name, validade, fornecedor_id } = req.body;
         const photo = req.file ? req.file.filename : null;
-        const newProduto = await ProdutosModel.createProdutos(name, validade, photo);
+        const newProduto = await ProdutosModel.createProdutos(name, validade, photo, fornecedor_id);
         res.status(201).json(newProduto);
     } catch (error) {
         console.error(error);
