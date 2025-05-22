@@ -9,7 +9,7 @@ router.use(apikey);
 router.get("/", produtosController.getAllProdutos);
 router.get("/:id", produtosController.getById);
 router.post("/", upload.single("photo"),produtosController.createProdutos);
-router.put("/:id", upload.single("photo"), produtosController.editProdutos);
+router.put("/:id", produtosController.editProdutos);
 router.delete("/:id", produtosController.deleteProduto);
 
 module.exports = router;
